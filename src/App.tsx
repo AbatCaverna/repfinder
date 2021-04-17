@@ -1,11 +1,23 @@
 import React from 'react';
-import './App.css';
+import { Router, Switch, Route, Redirect } from "react-router-dom"
+
+import history from './services/history';
+
+//styles
+import GlobalStyle from './globalStyles';
+
+//pages
+import Login from './pages/login'
 
 function App() {
   return (
-    <div className="App">
-      App Works!
-    </div>
+      <Router history={history}>
+        <Switch>
+          <Route exact path="/login" component= {Login}/>
+          <Redirect from="*" to="/" />
+        </Switch>
+        <GlobalStyle/>
+      </Router>
   );
 }
 
