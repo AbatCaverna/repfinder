@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ReactComponent as HouseImg } from '../../assets/undraw_house_searching_n8mp 1.svg';
 
-import { Container, ContainerImg, LoginForm, UnderlineLabel } from './styles';
+import { Container, ContainerImg, LoginForm, UnderlineLabel, CardContainer, Header } from './styles';
 
 //components
 import Card from '../../components/card'
@@ -15,21 +15,23 @@ const Login: React.FC = () => {
   
     return (
   <Container>
-      <header>
+      <Header>
           RepFinder
-      </header>
-      <Card bgColor={`rgba(30, 30, 36, 0.4)`} width={10} height={10}>
-          <CardHeader>LOGIN</CardHeader>
-          <CardContent>
-            <LoginForm>
-              <Input type={'text'} placeholder={'E-mail'}/>
-              <Input type={'password'} placeholder={'Senha'}/>
-              <UnderlineLabel>Esqueci minha senha</UnderlineLabel>
-              <Button>Entrar</Button>
-              <UnderlineLabel style={{marginTop: '80px'}}>Cadastrar-se</UnderlineLabel>
-            </LoginForm> 
-          </CardContent>
-      </Card>
+      </Header>
+      <CardContainer>
+        <Card bgColor={`rgba(30, 30, 36, 0.75)`} width={10} height={10}>
+            <CardHeader>LOGIN</CardHeader>
+            <CardContent>
+              <LoginForm>
+                <Input type={'text'} placeholder={'E-mail'}/>
+                <Input type={'password'} placeholder={'Senha'}/>
+                <UnderlineLabel>Esqueci minha senha</UnderlineLabel>
+                <Button>Entrar</Button>
+                <UnderlineLabel style={{marginTop: '80px'}}>Cadastrar-se</UnderlineLabel>
+              </LoginForm> 
+            </CardContent>
+        </Card>
+      </CardContainer>
       <ContainerImg>
         <HouseImg/>
       </ContainerImg>
