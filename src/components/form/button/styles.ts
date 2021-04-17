@@ -6,4 +6,7 @@ export const Container = styled.button`
   width: 200px;
   border: none;
   cursor: pointer;
+  &:focus {
+    outline: inherit;
+  }
 `;
