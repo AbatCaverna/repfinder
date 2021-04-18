@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {NavLink} from 'react-router-dom';
 import { ReactComponent as HouseImg } from '../../assets/undraw_house_searching_n8mp 1.svg';
 
 import { Container, ContainerImg, LoginForm, UnderlineLabel, CardContainer, Header } from './styles';
@@ -18,8 +18,8 @@ const Login: React.FC = () => {
     const [password, setPassword] = React.useState("");
     const auth = useAuth();
 
-    function login(e: string, p: string)  {
-      auth.login(e, p)
+    async function login(e: string, p: string)  {
+      await auth.login(e, p)
     }
 
     return (
@@ -28,17 +28,30 @@ const Login: React.FC = () => {
             RepFinder
         </Header>
         <CardContainer>
-          <Card bgColor={`rgba(30, 30, 36, 0.75)`} width={10} height={10}>
+          <Card 
+          bgColor={`rgba(30, 30, 36, 0.75)`} 
+          width={10} 
+          height={10}>
               <CardHeader>LOGIN</CardHeader>
               <CardContent>
                 <LoginForm>
-                  <Input type={'text'} placeholder={'E-mail'} onChange={(ev: any) => setEmail(ev.target.value)}/>
-                  <Input type={'password'} placeholder={'Senha'} onChange={(ev: any) => setPassword(ev.target.value)}/>
+                  <Input 
+                    type={'text'} 
+                    placeholder={'E-mail'} 
+                    onChange={(ev: any) => setEmail(ev.target.value)
+                  }/>
+                  <Input 
+                    type={'password'} 
+                    placeholder={'Senha'} 
+                    onChange={(ev: any) => setPassword(ev.target.value)
+                  }/>
                   <UnderlineLabel>Esqueci minha senha</UnderlineLabel>
                   <Button onClick={() => login(email, password)}>Entrar</Button>
-                  <UnderlineLabel style={{marginTop: '80px'}}>Cadastrar-se</UnderlineLabel>
+                  <UnderlineLabel style={{marginTop: '80px'}}>
+                    <NavLink to="/register">Cadastrar-se</NavLink>
+                  </UnderlineLabel>
                 </LoginForm> 
-              </CardContent>
+              </CardContent >
           </Card>
         </CardContainer>
         <ContainerImg>

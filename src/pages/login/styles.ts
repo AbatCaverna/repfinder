@@ -76,4 +76,8 @@ export const UnderlineLabel = styled.div`
     align-self: flex-end;
     color: #92140C;
     cursor: pointer;
+
+    a {
+        color:#92140C;
+    }
 `

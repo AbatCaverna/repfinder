@@ -11,12 +11,32 @@ export const AuthProvider: React.FC = ({ children }) => {
     const [currentUser, setCurrentUser] = React.useState<any>()
     const [loading, setLoading] = React.useState(true)
 
-    function singup(email: string, password: string) {
-        return auth.createUserWithEmailAndPassword(email, password)
+    async function singup(email: string, password: string, name: string, foto?: string) {
+        await auth.createUserWithEmailAndPassword(email, password)
+            .then(() => {
+
+                currentUser.updateProfile({
+                    displayName: name, 
+                    photoURL: foto || 'https://isaojose.com.br/wp-content/uploads/2020/12/blank-profile-picture-mystery-man-avatar-973460.jpg'
+                })
+
+            })
+        return 
     }
 
-    function login(email: string, password: string) {
-        return auth.signInWithEmailAndPassword(email, password)
+    async function login(email: string, password: string) {
+        await auth.signInWithEmailAndPassword(email, password)
+        .then((res: any) => {
+            const {displayName, email, uid, photoURL, emailVerified} = res.user;
+            const user = {displayName, email, uid, photoURL, emailVerified}
+            console.log(user)
+            window.localStorage.setItem('@User', JSON.stringify(user));
+            console.log(`User ${email} logged in`)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+        
     }
 
     function logout() {
@@ -29,6 +49,13 @@ export const AuthProvider: React.FC = ({ children }) => {
     
     function updatePassword(password: string) {
         return currentUser.updatePassword(password)
+    }
+
+    function updateProfile(name: string, photo?: string) {
+        currentUser.updateProfile({
+            displayName: name,
+            photoURL: photo || 'https://isaojose.com.br/wp-content/uploads/2020/12/blank-profile-picture-mystery-man-avatar-973460.jpg',
+        })
     }
 
     React.useEffect(() => {
