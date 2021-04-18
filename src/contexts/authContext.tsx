@@ -1,6 +1,7 @@
 import * as React from 'react'
 import {auth} from '../services/firebase';
 
+import {useAlert} from './alert/alertContext';
 export const AuthContext = React.createContext({} as any);
 
 export function useAuth() {
@@ -10,6 +11,8 @@ export function useAuth() {
 export const AuthProvider: React.FC = ({ children }) => {
     const [currentUser, setCurrentUser] = React.useState<any>()
     const [loading, setLoading] = React.useState(true)
+
+    const alert = useAlert();
 
     async function singup(email: string, password: string, name: string, foto?: string) {
         await auth.createUserWithEmailAndPassword(email, password)
@@ -34,7 +37,7 @@ export const AuthProvider: React.FC = ({ children }) => {
             console.log(`User ${email} logged in`)
         })
         .catch(err => {
-            console.log(err)
+            alert.setAlert(err.code, err.message)
         })
         
     }
