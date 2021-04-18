@@ -76,7 +76,8 @@ export const AuthProvider: React.FC = ({ children }) => {
         login,
         logout,
         updateEmail,
-        updatePassword
+        updatePassword,
+        updateProfile
     }
 
     return (
