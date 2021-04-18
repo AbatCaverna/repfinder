@@ -15,11 +15,11 @@ function App() {
   return (
       <Router history={history}>
         <Switch>
-          <Route exact path="/login" component= {Login}/>
-          <Route exact path="/register" component= {Register}/>
-          <Route exact path="/notfound" component= {Error}/>
-          <Redirect exact from="/" to="/login" />
-          <Redirect from="*" to="/notfound" />
+          <Route exact path="/repfinder/login" component= {Login}/>
+          <Route exact path="/repfinder/register" component= {Register}/>
+          <Route exact path="/repfinder/notfound/" component= {Error}/>
+          <Redirect exact from="/repfinder/" to="/repfinder/login" />
+          <Redirect from="*" to="/repfinder/notfound" />
         </Switch>
         <GlobalStyle/>
       </Router>
