@@ -5,4 +5,8 @@ export const Container = styled.input`
     border-radius: 8px;
     width: 273px;
     height: 41px;
+    padding-left: 1rem;
+    &:focus {
+        outline: none;
+    }
 `;

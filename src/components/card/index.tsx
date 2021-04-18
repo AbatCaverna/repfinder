@@ -4,8 +4,8 @@ import { CardItem } from './styles';
 
 interface CardProps {
     bgColor: string;
-    height: number;
-    width: number;
+    height?: number;
+    width?: number;
 }
 
 const Card: React.FC<CardProps> = ({bgColor, height, width, children}) => {
