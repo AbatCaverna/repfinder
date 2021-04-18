@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/repfinder/static/js/main.a26f2a60.chunk.js",
-    "main.js.map": "/repfinder/static/js/main.a26f2a60.chunk.js.map",
+    "main.js": "/repfinder/static/js/main.8c2bc0d6.chunk.js",
+    "main.js.map": "/repfinder/static/js/main.8c2bc0d6.chunk.js.map",
     "runtime-main.js": "/repfinder/static/js/runtime-main.699be618.js",
     "runtime-main.js.map": "/repfinder/static/js/runtime-main.699be618.js.map",
     "static/js/2.9f01aa62.chunk.js": "/repfinder/static/js/2.9f01aa62.chunk.js",
@@ -14,6 +14,6 @@
   "entrypoints": [
     "static/js/runtime-main.699be618.js",
     "static/js/2.9f01aa62.chunk.js",
-    "static/js/main.a26f2a60.chunk.js"
+    "static/js/main.8c2bc0d6.chunk.js"
   ]
 }
